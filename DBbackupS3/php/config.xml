@@ -1,0 +1,16 @@
+    <configuration xmlns="http://logging.apache.org/log4php/">
+        <appender name="myAppender" class="LoggerAppenderRollingFile">
+	<layout class="LoggerLayoutPattern">
+                <param name="conversionPattern" value="[%p] %c %date  %C{20} %F line %L %message%newline" />
+            </layout>            
+	<param name="file" value="/external_storage/Rammohan/db_backups/DBbackupS3/logs/s3/myLog.log" />
+  	<param name="maxFileSize" value="10MB" />
+        <param name="maxBackupIndex" value="30" />
+        </appender>
+        <root>
+            <level value="INFO" />
+            <appender_ref ref="myAppender" />
+        </root>
+    </configuration>
+
+

@@ -1,0 +1,24 @@
+bash: /home/ubuntu/db_backups/dbscript.sh: No such file or directory
+the input device is not a TTY
+  adding: home/kmit/Documents/Rammohan/db_backups/facelogin/facelogin_09-09-2025:15h.sql (stored 0%)
+  adding: home/kmit/Documents/Rammohan/db_backups/facelogin/facelogin_09-09-2025:15h.sql (deflated 81%)
+the input device is not a TTY
+updating: home/kmit/Documents/Rammohan/db_backups/facelogin/facelogin_09-09-2025:15h.sql (stored 0%)
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+  adding: home/kmit/Documents/Rammohan/db_backups/facelogin/facelogin_09-09-2025:15h.sql (deflated 81%)
+facelogin/cronlog.txt is not a .zip file and will not be uploaded to s3
+facelogin/facelogin_09-09-2025:15h.sql is not a .zip file and will not be uploaded to s3
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+updating: home/kmit/Documents/Rammohan/db_backups/facelogin/facelogin_09-09-2025:15h.sql (deflated 81%)
+facelogin/facelogin_09-09-2025:15h.zip file is uploaded to s3
+Error response from daemon: No such container: php74-apache2-mysql57-mysql-1
+  adding: external_storage/Rammohan/db_backups/facelogin/facelogin_10-09-2025:10h.sql (stored 0%)
+/bin/sh: 1: /usr/bin/php: not found
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+  adding: external_storage/Rammohan/db_backups/facelogin/facelogin_10-09-2025:10h.sql (deflated 81%)
+/bin/sh: 1: /usr/bin/php: not found
+facelogin/cronlog.txt is not a .zip file and will not be uploaded to s3
+facelogin/facelogin_09-09-2025:15h.sql is not a .zip file and will not be uploaded to s3
+facelogin/facelogin_09-09-2025:15h.zip file is uploaded to s3
+facelogin/facelogin_10-09-2025:10h.sql is not a .zip file and will not be uploaded to s3
+facelogin/facelogin_10-09-2025:10h.zip file is uploaded to s3
