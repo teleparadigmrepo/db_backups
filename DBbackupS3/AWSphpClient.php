@@ -84,18 +84,19 @@ function getObjectsFromS3BucketandDelete($bucket){
 	// Use the high-level iterators (returns ALL of your objects).
 	try {
 	    $results = $s3->getPaginator('ListObjects', [
-		'Bucket' => $bucket
+		'Bucket' => $bucket,
+		'Prefix' => 'mailscompressed/',
 	    ]);
-
 	    foreach ($results as $result) {
-		foreach ($result['Contents'] as $object) {
-		    $filename=getLastItemAfterSplit($object['Key'],'/');
+			$count = isset($result['Contents']) ? count($result['Contents']) : 0;			
+			foreach ($result['Contents'] as $object) {
+				$filename=getLastItemAfterSplit($object['Key'],'/');
 		    preg_match_all('/\d{2}\-\d{2}\-\d{4}/',$filename,$matches);
-		    if(count($matches[0])){
-			if(strtotime($matches[0][0]) < strtotime('-30 day')){    // it's been longer than 30 days
-	    $logger->info('matches the file to delete ' . $matches[0][0]." => ".(strtotime($matches[0][0]) < strtotime('-30 day')));
-				deleteObjectFromS3($bucket,$object['Key']);
-			}
+		    if(count($matches[0]) && $count > 20){								
+				if(strtotime($matches[0][0]) < strtotime('-30 day')){    // it's been longer than 30 days
+					$logger->info('matches the file to delete ' . $matches[0][0]." => ".(strtotime($matches[0][0]) < strtotime('-30 day')));
+					deleteObjectFromS3($bucket,$object['Key']);
+				}
 		    }
 		}//end of inner foreach
 	    }//end of outer foreach
