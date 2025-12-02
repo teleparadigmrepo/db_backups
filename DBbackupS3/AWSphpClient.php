@@ -58,7 +58,17 @@ function upload_file($local_folder,$bucket_name,$file_name){
 
 	try {
 		// Check if the file has a .zip extension before uploading
-		if (pathinfo($file_name, PATHINFO_EXTENSION) === 'zip') {
+		if (pathinfo($local_folder, PATHINFO_EXTENSION) === 'zip') {
+
+			// Get file creation/modified date
+			$fileDate = date("Y-m-d", filemtime($local_folder));			
+			$today = date("Y-m-d");
+
+			// Upload only if the file is created today
+			if ($fileDate !== $today) {
+				// echo "$file_name skipped (old file: $fileDate)\n";
+				return;
+			}
 
 			$s3->putObject([
 			'Bucket' => $bucket_name,
